@@ -5,60 +5,13 @@
     <meta name="viewport"
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="{{ url_for( 'static', filename='style.css', v=1)}}">
     <title>Document</title>
-    <style>
-        .transparent {
-            position: absolute;
-            opacity: 0;
-            pointer-events: none;
-        }
-    </style>
 </head>
 <body>
     <canvas width="700" height="500" style="border:1px solid #ccc;margin:10px;cursor:crosshair;"  id="tablet"></canvas>
-    <form method="post" action="/compare">
-        <input type="text" class="transparent" name="url" value="-">
-        <input type="submit" value="Отправить url" onclick="saveUrl()">
-    </form>
-    <div class="some">Тут будет юрл</div>
-    <script>
-    function init() {
-        let ctx = tablet.getContext('2d');
-        ctx.lineWidth = 10;
-        ctx.rect(0, 0, 700, 500);
-        ctx.fillStyle = 'white';
-        ctx.fill();
+    <input type="submit" value="Отправить url" id="sumBtn">
 
-
-        let paint = false;
-
-        tablet.addEventListener("mousedown", Down);
-        tablet.addEventListener("mouseup",   Up);
-        tablet.addEventListener("mousemove", Move);
-
-        function Down(e){
-         paint = true;
-         ctx.beginPath();
-         ctx.moveTo(e.pageX - this.offsetLeft, e.pageY - this.offsetTop);
-        }
-        function Up(e){
-         paint = false;
-         ctx.closePath();
-        }
-        function Move(e){
-         if( paint == true ){
-          ctx.lineTo(e.pageX - this.offsetLeft, e.pageY - this.offsetTop);
-          ctx.stroke();
-         }
-        }
-    }
-    function saveUrl(){
-        var dataURL = tablet.toDataURL("image/jpeg");
-        let some = document.getElementsByClassName('transparent')[0];
-        some.value = dataURL;
-    }
-    init();
-    </script>
-
+    <script src="{{ url_for( 'static', filename='main.js', v=1)}}"></script>
 </body>
 </html>
