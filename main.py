@@ -34,7 +34,7 @@ def index():
 
 @app.route('/compare', methods=['GET', 'POST'])
 def result():
-    if request.method == "POST":
+    if request.method == "POST" and session.get('draw_country', None):
         url = request.form.get('url')
         draw_country = session.get('draw_country', None)
         hash1, hash2, compared = compare.compare(url, draw_country[1])

@@ -1,16 +1,15 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-</head>
-<body>
-<p>{{ hash1 }}</p>
-<p>{{ hash2 }}</p>
-<p>Изображения похожи на {{ compared }}%</p>
-<h1>{{ country }}</h1>
-<h1>{{ region }}</h1>
-<img src="{{ url_for( 'static', filename=path, v=1)}}" />
-<img src="{{ original }}" />
-</body>
-</html>
+{% extends "base.html" %}
+
+{% block title %}Compare page{% endblock %}
+
+{% block content %}
+    <p>{{ hash1 }}</p>
+    <p>{{ hash2 }}</p>
+    <p>Изображения похожи на {{ compared }}%</p>
+    <h1>{{ country }}</h1>
+    <h1>{{ region }}</h1>
+    <img src="{{ url_for( 'static', filename=path, v=1)}}" />
+    <img src="{{ original }}" />
+{% endblock %}
+
+{% block scripts %}{% endblock %}
