@@ -1,6 +1,7 @@
 import cv2
 import difflib
 import urllib.request
+from math import floor
 
 
 # Функция вычисления хэша
@@ -35,11 +36,11 @@ def CompareHash(hash1, hash2):
     return count
 
 
-def compare(url):
-    urllib.request.urlretrieve(url, 'second.png')
-    hash1 = CalcImageHash("photo.png")
-    hash2 = CalcImageHash("second.png")
-    compared = CompareHash(hash1, hash2)
+def compare(url, country):
+    urllib.request.urlretrieve(url, 'static/countries/original.png')
+    hash1 = CalcImageHash("static/" + country)
+    hash2 = CalcImageHash('static/countries/original.png')
+    compared = floor((64-CompareHash(hash1, hash2)) * 1.5625)
     return hash1, hash2, compared
 
 

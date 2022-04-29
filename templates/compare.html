@@ -7,6 +7,10 @@
 <body>
 <p>{{ hash1 }}</p>
 <p>{{ hash2 }}</p>
-<p>{{ compared }}</p>
+<p>Изображения похожи на {{ compared }}%</p>
+<h1>{{ country }}</h1>
+<h1>{{ region }}</h1>
+<img src="{{ url_for( 'static', filename=path, v=1)}}" />
+<img src="{{ original }}" />
 </body>
 </html>
