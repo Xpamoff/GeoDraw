@@ -31,6 +31,9 @@ def index():
     session['draw_country'] = draw_country
     return render_template('index.html', country=draw_country[0])
 
+@app.route('/main')
+def main():
+    return render_template('main.html')
 
 @app.route('/compare', methods=['GET', 'POST'])
 def result():
