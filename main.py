@@ -26,10 +26,14 @@ country = [["Russia", "countries/russia.jpg", "Europe / Asia"],
 
 @app.route('/')
 def index():
+    return render_template('index.html')
+
+@app.route('/draw')
+def draw():
     number = random.randint(0, 4)
     draw_country = country[number]
     session['draw_country'] = draw_country
-    return render_template('index.html', country=draw_country[0])
+    return render_template('draw.html', country=draw_country[0])
 
 @app.route('/main')
 def main():

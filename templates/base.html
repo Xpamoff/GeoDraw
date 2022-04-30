@@ -20,11 +20,16 @@
 
     <footer id="footer">
         {% block footer %}
-            Footer here
+            GeoDraw Inc.
         {% endblock %}
     </footer>
     {% block scripts %}
     <script src="{{ url_for( 'static', filename='main.js', v=1)}}"></script>
     {% endblock %}
+    <script>
+        document.getElementsByClassName('logo')[0].addEventListener('click', ()=>{
+            location.href = '/';
+        })
+    </script>
 </body>
 </html>
