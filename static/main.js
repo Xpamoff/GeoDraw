@@ -63,7 +63,7 @@ timeLeft = setTimeout(()=>{
 let tablet = document.getElementById('tablet');
 let ctx = tablet.getContext('2d');
 let paint = false;
-ctx.lineWidth = 10;
+ctx.lineWidth = 6;
 ctx.rect(0, 0, 700, 500);
 ctx.fillStyle = 'white';
 ctx.fill();
