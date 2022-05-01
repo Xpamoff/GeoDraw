@@ -1,9 +1,19 @@
 {% extends "base.html" %}
 
+{% block additional_styles %}<link rel="stylesheet" href="{{ url_for( 'static', filename='draw.css', v=1)}}">{% endblock %}
+
 {% block title %}Draw page{% endblock %}
 
 {% block content %}
-    <h1>Нарисуй {{ country }}</h1>
-    <canvas width="700" height="500" style="border:1px solid #ccc;margin:10px;cursor:crosshair;"  id="tablet"></canvas>
-    <input type="submit" value="Отправить url" id="sumBtn">
+    <div class="draw-container gradient">
+        <h1>Draw {{ country }}</h1>
+        <canvas width="700" height="500"  id="tablet"></canvas>
+        <div class="flex-between-box">
+            <div class="time-left">Time left: 30s</div>
+            <div class="btns">
+                <a id="clear" class="third">Clear</a>
+                <a id="sumBtn" class="third  button-2">Finish</a>
+            </div>
+        </div>
+    </div>
 {% endblock %}

@@ -40,8 +40,25 @@ function Move(e){
 document.getElementById("sumBtn").addEventListener("click", (event) => {
     event.preventDefault();
     var dataURL = tablet.toDataURL("image/jpeg");
+    // clearTimeout(timeLeft);
+    clearInterval(timeCounter);
     post('/compare', {url: dataURL});
 });
+
+time = 30
+document.getElementsByClassName('time-left')[0].innerHTML = "Time left: "+ time +"s";
+
+
+timeCounter = setInterval(()=>{
+    time-=1;
+    document.getElementsByClassName('time-left')[0].innerHTML = "Time left: "+ time +"s";
+}, 1000)
+
+timeLeft = setTimeout(()=>{
+    var dataURL = tablet.toDataURL("image/jpeg");
+    post('/compare', {url: dataURL});
+}, 30000)
+
 
 let tablet = document.getElementById('tablet');
 let ctx = tablet.getContext('2d');
@@ -50,6 +67,14 @@ ctx.lineWidth = 10;
 ctx.rect(0, 0, 700, 500);
 ctx.fillStyle = 'white';
 ctx.fill();
+
+document.getElementById('clear').addEventListener('click', ()=>{
+    ctx.clearRect(0, 0, 700, 500);
+    ctx.beginPath();
+    ctx.rect(0, 0, 700, 500);
+    ctx.fillStyle = 'white';
+    ctx.fill();
+})
 
 tablet.addEventListener("mousedown", Down);
 tablet.addEventListener("mouseup",   Up);
