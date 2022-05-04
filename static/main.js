@@ -74,6 +74,12 @@ document.getElementById('clear').addEventListener('click', ()=>{
     ctx.rect(0, 0, 700, 500);
     ctx.fillStyle = 'white';
     ctx.fill();
+    // time -= 5;
+    // document.getElementById('-time').style.display='inline';
+    // document.getElementById('-time').style.transition='inline';
+    // document.getElementById('-time').addEventListener('click', ()=>{
+    //     document.getElementById('ddd').style.display='inline';
+    // })
 })
 
 tablet.addEventListener("mousedown", Down);

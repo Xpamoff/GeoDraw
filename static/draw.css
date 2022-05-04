@@ -29,3 +29,11 @@ h1{
 .btns{
     width: 420px;
 }
+.minus {
+    font-size: 1.5em;
+    font-weight: 300;
+    display: none;
+    position: absolute;
+    margin-left: 100px;
+    margin-top: -20px;
+}
