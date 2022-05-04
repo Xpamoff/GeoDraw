@@ -7,10 +7,10 @@
     <section class="temp first">GeoDraw</section>
     <section class="temp second">Simple game based on drawing the outlines of different countries and comparison these drawings to the real outlines.</section>
     <div class="btns">
-        <a class="temp third" href="/draw">World</a>
-        <a class="temp third button-2">Europe</a>
+        <a class="temp third" id="world">World</a>
+        <a class="temp third button-2" id="europe">Europe</a>
     </div>
 </div>
 {% endblock %}
 
-{% block scripts %}{% endblock %}
+{% block scripts %}<script src="{{ url_for( 'static', filename='to_europe.js', v=1)}}"></script>{% endblock %}
