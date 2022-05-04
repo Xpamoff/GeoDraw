@@ -11,6 +11,11 @@ def CalcImageHash(FileName):
     gray_image = cv2.cvtColor(resized, cv2.COLOR_BGR2GRAY)  # Переведем в черно-белый формат
     avg = gray_image.mean()  # Среднее значение пикселя
     ret, threshold_image = cv2.threshold(gray_image, avg, 255, 0)  # Бинаризация по порогу
+<<<<<<< HEAD
+=======
+    # cv2.imshow('image',threshold_image)
+    # cv2.waitKey(0)
+>>>>>>> ac98333173178ed77a3439f1f10fa463d3ae996a
     # Рассчитаем хэш
     _hash = ""
     for x in range(8):
