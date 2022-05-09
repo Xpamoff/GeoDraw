@@ -7,10 +7,26 @@ app = Flask(__name__)
 
 
 country = [["Russia", "countries/russia.jpg", "Europe / Asia"],
-           ["Germany", "countries/russia.jpg", "Europe"],
-           ["New Zealand", "countries/russia.jpg", "Oceania"],
-           ["Egypt", "countries/russia.jpg", "Africa"],
-           ["United States", "countries/russia.jpg", "North America"]]
+           ["Germany", "countries/germany.png", "Europe"],
+           ["Canada", "countries/canada.png", "North America"],
+           ["Poland", "countries/poland.png", "Europe"],
+           ["United States", "countries/usa.png", "North America"],
+           ["Turkey", "countries/turkey.png", "Europe / Asia"],
+           ["Ukraine", "countries/ukraine.png", "Europe"],
+           ["Brazil", "countries/brazil.png", "South America"],
+           ["Mexico", "countries/mexico.png", "North America"],
+           ["Austria", "countries/austria.png", "Europe"],
+           ["China", "countries/china.png", "Asia"],
+           ["Australia", "countries/australia.png", "Oceania"],
+           ["Finland", "countries/finland.png", "Europe"],
+           ["France", "countries/france.png", "Europe"],
+           ["India", "countries/india.png", "Asia"],
+           ["Italy", "countries/italy.png", "Europe"],
+           ["Japan", "countries/japan.png", "Asia"],
+           ["Norway", "countries/norway.png", "Europe"],
+           ["South Africa", "countries/south africa.png", "Africa"],
+           ["Spain", "countries/spain.png", "Europe"],
+           ["United Kingdom", "countries/uk.png", "Europe"]]
 
 
 @app.route('/')
@@ -23,11 +39,11 @@ def draw():
         region = request.form.get('region')
         if region == "Europe":
             while True:
-                number = random.randint(0, 4)
+                number = random.randint(0, len(country)-1)
                 if "Europe" in country[number][2]:
                     break
         else:
-            number = random.randint(0, 4)
+            number = random.randint(0, len(country)-1)
     else: 
         return redirect('/')
     draw_country = country[number]
