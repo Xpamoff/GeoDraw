@@ -14,7 +14,8 @@
 <body>
     <header>
         {% block header %}
-            <img src="//capp.nicepage.com/53cb18063e177f9bcb15d084da0519c2d68d608e/images/default-logo.png" alt="logo" class="logo">
+            <!-- <img src="//capp.nicepage.com/53cb18063e177f9bcb15d084da0519c2d68d608e/images/default-logo.png" alt="logo" class="logo"> -->
+            <img src="{{ url_for( 'static', filename='logo.png', v=1)}}" alt="logo" class="logo">
         {% endblock %}
     </header>
     <div id="content">{% block content %}{% endblock %}</div>
