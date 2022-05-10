@@ -4,14 +4,12 @@ import urllib.request
 from math import floor
 
 
-# Функция вычисления хэша
 def CalcImageHash(FileName):
-    image = cv2.imread(FileName)  # Прочитаем картинку
-    resized = cv2.resize(image, (8, 8), interpolation=cv2.INTER_AREA)  # Уменьшим картинку
-    gray_image = cv2.cvtColor(resized, cv2.COLOR_BGR2GRAY)  # Переведем в черно-белый формат
-    avg = gray_image.mean()  # Среднее значение пикселя
-    ret, threshold_image = cv2.threshold(gray_image, avg, 255, 0)  # Бинаризация по порогу
-    # Рассчитаем хэш
+    image = cv2.imread(FileName)  
+    resized = cv2.resize(image, (8, 8), interpolation=cv2.INTER_AREA) 
+    gray_image = cv2.cvtColor(resized, cv2.COLOR_BGR2GRAY) 
+    avg = gray_image.mean()  
+    ret, threshold_image = cv2.threshold(gray_image, avg, 255, 0)  
     _hash = ""
     for x in range(8):
         for y in range(8):
