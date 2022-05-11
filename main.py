@@ -5,6 +5,27 @@ import random
 
 app = Flask(__name__)
 
+def chooseCountry(country):
+    number1, number2, number3, number4 = 0, 0, 0, 0
+    while True:
+        number1 = random.randint(0, len(country)-1)
+        number2 = random.randint(0, len(country)-1)
+        number3 = random.randint(0, len(country)-1)
+        number4 = random.randint(0, len(country)-1)
+        if (number1!=number2 and number1!=number3 and number1!=number4) and (number2!=number3 and number2!=number4) and (number3!=number4):
+            break
+    mainId = random.randint(1, 4)
+    if mainId == 1:
+        mainCountry = number1
+    elif mainId == 2:
+        mainCountry = number2
+    elif mainId == 3:
+        mainCountry = number3
+    else:
+        mainCountry = number4
+    
+    return number1, number2, number3, number4, mainCountry
+
 
 country = [["Russia", "countries/russia.jpg", "Europe / Asia"],
            ["Germany", "countries/germany.png", "Europe"],
@@ -50,9 +71,22 @@ def draw():
     session['draw_country'] = draw_country
     return render_template('draw.html', country=draw_country[0])
 
-@app.route('/main')
+@app.route('/detect', methods=['GET', 'POST'])
 def main():
-    return render_template('main.html')
+    if request.method != "POST":
+        return redirect('/')
+    region = request.form.get('type')
+    if region != "Detect":
+        return redirect('/')
+    
+    number1, number2, number3, number4, mainCountry = chooseCountry(country)
+    return render_template('detect.html',
+                           number1=country[number1][0], 
+                           number2=country[number2][0], 
+                           number3=country[number3][0], 
+                           number4=country[number4][0], 
+                           mainCountry=country[mainCountry][1],
+                           mainName=country[mainCountry][0])
 
 @app.route('/compare', methods=['GET', 'POST'])
 def result():

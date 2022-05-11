@@ -18,16 +18,7 @@ function post(path, params, method='post') {
     form.submit();
 }
 
-document.getElementById("europe").addEventListener("click", (event) => {
-    event.preventDefault();
-    post('/draw', {region: "Europe"});
-});
-
-document.getElementById("world").addEventListener("click", (event) => {
-    event.preventDefault();
-    post('/draw', {region: "World"});
-});
 document.getElementById("detect").addEventListener("click", (event) => {
-  event.preventDefault();
-  post('/detect', {type: "Detect"});
-});
+    event.preventDefault();
+    post('/detect', {type: "Detect"});
+  });
