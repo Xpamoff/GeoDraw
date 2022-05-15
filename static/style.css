@@ -40,6 +40,7 @@ header{
     align-items: center;
     align-content: space-around;
     padding: 3rem;
+    box-shadow: -2px 1px 16px 20px rgb(255 255 255 / 80%);
 }
 
 .temp {
@@ -132,6 +133,10 @@ header{
     justify-content: center; 
     min-height: 980px;
     background-color: #fff;
+    background-image: url("background.jpg");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: contain;
 }
 
 footer{
