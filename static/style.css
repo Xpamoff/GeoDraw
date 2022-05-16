@@ -7,6 +7,19 @@
     font-family: 'Roboto', sans-serif;
 }
 
+@media screen and (max-width: 899px){
+    .unavailable{
+        display: block !important;
+    }
+    header, #content, footer{
+        display: none !important;
+    }
+}
+
+.unavailable{
+    display: none;
+}
+
 header{
     height: 60px;
     width: 100%;

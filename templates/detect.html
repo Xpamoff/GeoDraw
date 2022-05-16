@@ -34,6 +34,12 @@
 {% block scripts %}
 <script>
     clicked = false
+    
+    let scroll = localStorage.getItem("scroll");
+
+    if(scroll){
+        window.scroll(0, scroll);
+    }
 
     const show = (element, response) => {
         if(clicked) return 0;

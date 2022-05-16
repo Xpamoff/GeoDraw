@@ -2,6 +2,10 @@
 
 {% block title %}GeoDraw{% endblock %}
 
+{% block additional_styles %}
+<link rel="stylesheet" href="{{ url_for( 'static', filename='drawdefine.css', v=1)}}">
+{% endblock %}
+
 {% block content %}
 <div class="gradient">
     <section class="temp first">GeoDraw</section>

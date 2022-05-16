@@ -45,4 +45,4 @@ if(document.getElementById("drawdefine")){
     event.preventDefault();
     post('/drawdefine', {type: "Drawdefine"});
   });
-  }
+}

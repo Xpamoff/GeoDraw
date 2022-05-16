@@ -20,5 +20,6 @@ function post(path, params, method='post') {
 
 document.getElementById("detect").addEventListener("click", (event) => {
     event.preventDefault();
+    localStorage.setItem("scroll", window.scrollY);
     post('/detect', {type: "Detect"});
   });
