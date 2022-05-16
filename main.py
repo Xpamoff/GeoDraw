@@ -71,8 +71,17 @@ def draw():
     session['draw_country'] = draw_country
     return render_template('draw.html', country=draw_country[0])
 
+@app.route('/drawdefine', methods=['GET', 'POST'])
+def drawdefine():
+    if request.method != "POST":
+        return redirect('/')
+    region = request.form.get('type')
+    if region != "Drawdefine":
+        return redirect('/')
+    return render_template('drawdefine.html')
+
 @app.route('/detect', methods=['GET', 'POST'])
-def main():
+def detect():
     if request.method != "POST":
         return redirect('/')
     region = request.form.get('type')

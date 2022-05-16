@@ -42,7 +42,7 @@ document.getElementById("sumBtn").addEventListener("click", (event) => {
     post('/compare', {url: dataURL});
 });
 
-time = 30
+time = localStorage.getItem('time');
 document.getElementsByClassName('time-left')[0].innerHTML = "Time left: "+ time +"s";
 
 
@@ -51,10 +51,12 @@ timeCounter = setInterval(()=>{
     document.getElementsByClassName('time-left')[0].innerHTML = "Time left: "+ time +"s";
 }, 1000)
 
+let last_time = time * 1000
+
 timeLeft = setTimeout(()=>{
     var dataURL = tablet.toDataURL("image/jpeg");
     post('/compare', {url: dataURL});
-}, 30000)
+}, last_time)
 
 
 let tablet = document.getElementById('tablet');

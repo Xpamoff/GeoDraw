@@ -12,14 +12,16 @@
         <div class="img-box">
             <img src="{{ url_for( 'static', filename=mainCountry, v=1)}}" class="country-img img"/>
         </div>
-        <h1 class="main-text">What country is this???</h1>
-        <div class="btns">
-            <a class="temp third" id="number1">{{ number1 }}</a>
-            <a class="temp third button-2" id="number2">{{ number2 }}</a>
-        </div>
-        <div class="btns">
-            <a class="temp third" id="number3">{{ number3 }}</a>
-            <a class="temp third button-2" id="number4">{{ number4 }}</a>
+        <div class="ob">
+            <h1 class="main-text">What country is this???</h1>
+            <div class="btns">
+                <a class="temp third" id="number1">{{ number1 }}</a>
+                <a class="temp third button-2" id="number2">{{ number2 }}</a>
+            </div>
+            <div class="btns">
+                <a class="temp third" id="number3">{{ number3 }}</a>
+                <a class="temp third button-2" id="number4">{{ number4 }}</a>
+            </div>
         </div>
         <div class="invisible inv-text">
             <h1 id="response" class="lower-text h1"></h1>
@@ -45,6 +47,7 @@
         }
         document.getElementById('answer').innerHTML = "This is {{ mainName }}"
         element.classList.remove("invisible");
+        document.getElementsByClassName('ob')[0].classList.add("invisible");
     }
 
     let element = document.getElementsByClassName('invisible')[0];

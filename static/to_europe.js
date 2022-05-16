@@ -18,16 +18,31 @@ function post(path, params, method='post') {
     form.submit();
 }
 
-document.getElementById("europe").addEventListener("click", (event) => {
+if(document.getElementById("europe")){
+  document.getElementById("europe").addEventListener("click", (event) => {
     event.preventDefault();
     post('/draw', {region: "Europe"});
-});
+  });
+}
 
+if(document.getElementById("world")){
 document.getElementById("world").addEventListener("click", (event) => {
     event.preventDefault();
     post('/draw', {region: "World"});
 });
+}
+
+
+if(document.getElementById("detect")){
 document.getElementById("detect").addEventListener("click", (event) => {
   event.preventDefault();
   post('/detect', {type: "Detect"});
 });
+}
+
+if(document.getElementById("drawdefine")){
+  document.getElementById("drawdefine").addEventListener("click", (event) => {
+    event.preventDefault();
+    post('/drawdefine', {type: "Drawdefine"});
+  });
+  }
