@@ -20,7 +20,7 @@
     order: 0;
 }
 .invisible{
-    display: none;
+    display: none !important;
 }
 .inv-text{
     font-weight: 400;

@@ -37,7 +37,10 @@ def compare(url, country):
     urllib.request.urlretrieve(url, 'static/countries/original.png')
     hash1 = CalcImageHash("static/" + country)
     hash2 = CalcImageHash('static/countries/original.png')
-    compared = floor((64-CompareHash(hash1, hash2)) * 1.5625)
+    if "1" in hash2:
+        compared = floor((64-CompareHash(hash1, hash2)) * 1.5625)
+    else:
+        compared = 0
     return hash1, hash2, compared
 
 

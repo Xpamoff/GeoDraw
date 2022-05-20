@@ -17,10 +17,33 @@ function post(path, params, method='post') {
     document.body.appendChild(form);
     form.submit();
 }
+function checkLocal(){
+  switch(document.getElementById("time-range").value){
+    case "0": 
+        document.getElementsByClassName("time-output")[0].innerHTML = "10s";
+        localStorage.setItem('time', 10);
+        break;
+    case "1": 
+        document.getElementsByClassName("time-output")[0].innerHTML = "15s";
+        localStorage.setItem('time', 15);
+        break;
+    case "2": 
+        document.getElementsByClassName("time-output")[0].innerHTML = "30s";
+        localStorage.setItem('time', 30);
+        break;
+    default:
+        document.getElementsByClassName("time-output")[0].innerHTML = "30s";
+        localStorage.setItem('time', 30);
+        break;
+
+}
+}
+
 
 if(document.getElementById("europe")){
   document.getElementById("europe").addEventListener("click", (event) => {
     event.preventDefault();
+    checkLocal();
     post('/draw', {region: "Europe"});
   });
 }
@@ -28,6 +51,7 @@ if(document.getElementById("europe")){
 if(document.getElementById("world")){
 document.getElementById("world").addEventListener("click", (event) => {
     event.preventDefault();
+    checkLocal();
     post('/draw', {region: "World"});
 });
 }

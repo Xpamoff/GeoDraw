@@ -1,6 +1,6 @@
 {% extends "base.html" %}
 
-{% block title %}Compare page{% endblock %}
+{% block title %}GeoDraw{% endblock %}
 
 {% block additional_styles %}
 <link rel="stylesheet" href="{{ url_for( 'static', filename='compare.css', v=1)}}">
@@ -9,6 +9,7 @@
 
 {% block content %}
     <div class="compare-container gradient">
+        <section class="temp first">Detecting</section>
         <div class="img-box">
             <img src="{{ url_for( 'static', filename=mainCountry, v=1)}}" class="country-img img"/>
         </div>
