@@ -117,4 +117,4 @@ def result():
 
 if __name__ == '__main__':
     app.secret_key = 'ThOD4fSYjEDhma9YgIq33NIcgSJhqxDA4hHTPqlDzXY'
-    app.run(debug=True)
+    app.run()
